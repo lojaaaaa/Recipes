@@ -69,3 +69,46 @@ h6 {
   flex: 0 1 auto;
 }
 
+/*
+* Header
+*/
+
+
+
+.header {
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  mix-blend-mode: normal;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+}
+.header__container {
+  display: flex;
+  min-height: 91px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__menu {
+  display: flex;
+}
+.header__menu-item {
+  margin-right: 45px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 90px;
+  color: white;
+  transition: all .3s;
+}
+.header__menu-item:last-child{
+  margin-right: 0;
+}
+.header__menu-link {
+  transition: all .5s ease;
+}
+.header__menu-link:hover{
+  color: #34C759;
+  opacity: .7;
+}

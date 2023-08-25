@@ -1,8 +1,9 @@
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="wrapper">
-      <header className="header">i header</header>
+      <Header />
       <main className="main">main</main>
       <footer className="footer">footer</footer>
     </div>
