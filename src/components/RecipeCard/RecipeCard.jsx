@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const RecipeCard = ({image, title, desc, ingredients}) => {
   return (
     <div class="dishes__card">
