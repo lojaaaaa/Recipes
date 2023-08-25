@@ -27,7 +27,10 @@ const recipesSlice = createSlice({
   initialState: {               
       recipes: [],
   },
-  reducers: {        
+  reducers: {
+    addNewRecipe(state, action){
+      state.recipes.push(action.payload) 
+    }
   },
   extraReducers: {
     [getRecipes.pending]: (state, action) => {
@@ -39,5 +42,5 @@ const recipesSlice = createSlice({
 })
 
 
-
+export const {addNewRecipe} = recipesSlice.actions
 export default recipesSlice.reducer; 
