@@ -9,6 +9,7 @@ import { getRecipes } from "./redux/recipesSlice";
 
 function App() {
 
+  
   const recipes = [
     {
       "id": 1,
