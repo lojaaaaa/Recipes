@@ -2,14 +2,42 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import CreatePage from "./pages/CreatePage/CreatePage";
+import RecipesPage from "./pages/RecipesPage/RecipesPage";
 
 function App() {
+
+  const recipes = [
+    {
+      "id": 1,
+      "title":"Улитки по-бургундски",
+      "description":"Подается в луковом соусе",
+      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "image": "./img/recipes/1.jpg"
+    },
+    {
+      "id": 2,
+      "title":"Улитки по-бургундски",
+      "description":"Подается в луковом соусе",
+      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "image": "./img/recipes/1.jpg"
+    },
+    {
+      "id": 3,
+      "title":"Улитки по-бургундски",
+      "description":"Подается в луковом соусе",
+      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "image": "./img/recipes/1.jpg"
+    },
+]
+
+
   return (
     <div className="wrapper">
       <Header />
       <main className="main">
         <Routes>
           <Route path="/" element={<HomePage />}/>
+          <Route path="/recipes" element={<RecipesPage />}/>
           <Route path="/create" element={<CreatePage />}/>
         </Routes>
       </main>
@@ -17,5 +45,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
