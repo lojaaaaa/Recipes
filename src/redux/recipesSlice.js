@@ -21,6 +21,22 @@ export const getRecipes = createAsyncThunk(
 )
 
 
+export const addRecipe = createAsyncThunk(
+  'recipes/addRecipe',
+  async function (item, {rejectWithValue, dispatch}) {
+    try {
+      const response = await axios.post('https://64e8e44799cf45b15fe04aa2.mockapi.io/items', item)
+      const data = response.data
+      dispatch(addNewRecipe(data));
+  
+    } catch (error) {
+
+      return rejectWithValue(error.message)
+    }
+  }
+)
+
+
 
 const recipesSlice = createSlice({
   name: 'recipes',     

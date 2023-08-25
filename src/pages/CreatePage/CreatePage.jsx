@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewRecipe } from '../../redux/recipesSlice'
+import { addNewRecipe, addRecipe } from '../../redux/recipesSlice'
 
 const CreatePage = () => {
 
@@ -20,7 +20,7 @@ const CreatePage = () => {
       image: "./img/recipes/1.jpg"
     }
 
-    dispatch(addNewRecipe(recipe))
+    dispatch(addRecipe(recipe))
   }
 
   return (
