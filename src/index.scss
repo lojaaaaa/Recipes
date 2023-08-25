@@ -71,6 +71,22 @@ h6 {
 }
 
 
+.input{
+  background-color: transparent;
+  outline: none;
+  padding: 15px 25px;
+  color: white;
+  border: 0;
+  font-size: 18px;
+  border-bottom: 1px solid $color--regular;
+}
+
+.line--green{
+  background: #34C759;
+  height: 2px;
+  width: 60px;
+  transition: all 1s;
+}
 
 .title::after {
   position: absolute;
@@ -384,4 +400,38 @@ h6 {
 }
 .btn {
   
+}
+
+
+/*
+* Dishes
+*/
+
+
+.create {
+  margin-bottom: 90px;
+}
+.create__container {
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create__title{
+  margin-bottom: 30px;
+}
+.create__line{
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.create__title::after {
+  content: 'New recipe';
+}
+
+.create__form{
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  gap: 45px;
 }
