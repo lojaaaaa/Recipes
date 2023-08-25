@@ -138,10 +138,11 @@ h6 {
 .header__menu-item:last-child{
   margin-right: 0;
 }
-.header__menu-link {
+.active {
+  color: #34C759;
   transition: all .5s ease;
 }
-.header__menu-link:hover{
+.active:hover{
   color: #34C759;
   opacity: .7;
 }
