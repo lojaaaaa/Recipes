@@ -3,6 +3,9 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getRecipes } from "./redux/recipesSlice";
 
 function App() {
 
@@ -11,24 +14,30 @@ function App() {
       "id": 1,
       "title":"Улитки по-бургундски",
       "description":"Подается в луковом соусе",
-      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "ingredients": ["Улитки виноградные", "Масло сливочное", "Лук зеленый"],
       "image": "./img/recipes/1.jpg"
     },
     {
       "id": 2,
       "title":"Улитки по-бургундски",
       "description":"Подается в луковом соусе",
-      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "ingredients": ["Улитки виноградные", "Масло сливочное", "Лук зеленый"],
       "image": "./img/recipes/1.jpg"
     },
     {
       "id": 3,
       "title":"Улитки по-бургундски",
       "description":"Подается в луковом соусе",
-      "ingredients": ['Улитки виноградные', 'Масло сливочное', 'Лук зеленый'],
+      "ingredients": ["Улитки виноградные", "Масло сливочное", "Лук зеленый"],
       "image": "./img/recipes/1.jpg"
-    },
-]
+    }
+  ]
+  
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch]);
 
 
   return (

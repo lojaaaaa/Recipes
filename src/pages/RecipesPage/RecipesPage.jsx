@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RecipeCard from '../../components/RecipeCard/RecipeCard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const RecipesPage = () => {
 
   const recipes = useSelector(state => state.recipes.recipes)
-  console.log(recipes)
+
 
   return (
     <>
@@ -16,10 +16,11 @@ const RecipesPage = () => {
           <div className="dishes__cards">
             {recipes.map(r => 
             <RecipeCard 
-            title={r.title}
-            desc={r.description}
-            image={r.image}
-            ingredients={r.ingredients}
+              key={r.id}
+              title={r.title}
+              desc={r.description}
+              image={r.image}
+              ingredients={r.ingredients}
             />)}
           </div>
         </div>
