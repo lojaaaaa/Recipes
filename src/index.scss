@@ -1,0 +1,71 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-9');
+
+
+/*
+* Переменные
+*/
+
+// Цвета
+$color--main-bg: #1A1A1A;
+$color--regular: #A6A6A6;
+
+
+
+
+/*
+* Обнуление
+*/
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+
+body{
+    background-color: $color--main-bg;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 187%;
+    color: $color--regular;
+}
+
+img{
+    max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,
+h6 {
+	font-weight:normal;
+}
+
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main{
+  flex: 1 0 auto;
+}
+
+.footer{
+  flex: 0 1 auto;
+}
+
