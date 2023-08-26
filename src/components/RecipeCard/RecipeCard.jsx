@@ -1,7 +1,17 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteRecipe } from '../../redux/recipesSlice'
 
 
-const RecipeCard = ({image, title, desc, ingredients}) => {
+const RecipeCard = ({id, image, title, desc, ingredients}) => {
+
+  const dispatch = useDispatch()
+  
+
+  const onClickDelete = () =>{
+    dispatch(deleteRecipe(id))
+  }
+
   return (
     <div class="dishes__card">
       <div class="dishes__card-image">
@@ -16,7 +26,7 @@ const RecipeCard = ({image, title, desc, ingredients}) => {
           </div>
         </div>
         <div class="dishes__rating">
-          <button class="dishes__card-btn btn">Delete</button>
+          <button class="dishes__card-btn btn" onClick={onClickDelete}>Delete</button>
           <button class="dishes__card-btn btn">Favorite</button>
         </div>
       </div>

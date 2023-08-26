@@ -17,8 +17,8 @@ export const getRecipes = createAsyncThunk(
       return rejectWithValue(error.message)
     }
   }
-
 )
+
 
 
 export const addRecipe = createAsyncThunk(
@@ -36,6 +36,19 @@ export const addRecipe = createAsyncThunk(
   }
 )
 
+export const deleteRecipe = createAsyncThunk(
+  'recipes/deleteRecipe',
+  async function (id, {rejectWithValue, dispatch}) {
+    try {
+      await axios.delete(`https://64e8e44799cf45b15fe04aa2.mockapi.io/items/${id}`)
+      dispatch(removeRecipe(id))
+
+    } catch (error) {
+
+      return rejectWithValue(error.message)
+    }
+  }
+)
 
 
 const recipesSlice = createSlice({
@@ -46,7 +59,10 @@ const recipesSlice = createSlice({
   reducers: {
     addNewRecipe(state, action){
       state.recipes.push(action.payload) 
-    }
+    },
+    removeRecipe(state, action){
+      state.recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
+    },
   },
   extraReducers: {
     [getRecipes.pending]: (state, action) => {
@@ -58,5 +74,5 @@ const recipesSlice = createSlice({
 })
 
 
-export const {addNewRecipe} = recipesSlice.actions
+export const {addNewRecipe, removeRecipe} = recipesSlice.actions
 export default recipesSlice.reducer; 
