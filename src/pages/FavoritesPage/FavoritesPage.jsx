@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import RecipeCard from '../../components/RecipeCard/RecipeCard'
+import FavoriteCard from '../../components/FavoriteCard/FavoriteCard'
 
 const FavoritesPage = () => {
 
@@ -13,7 +14,7 @@ const FavoritesPage = () => {
         <div className="dishes__line line--green"></div>
         <div className="dishes__cards">
         {favorites.map(f => 
-            <RecipeCard 
+            <FavoriteCard 
               key={f.id}
               id={f.id}
               title={f.title}
