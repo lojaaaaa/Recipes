@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipes } from "./redux/slices/recipesSlice";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
+import { getFromLocalStorage } from "./redux/slices/favoritesSlice";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getRecipes());
+    dispatch(getFromLocalStorage())
   }, [dispatch]);
 
 
