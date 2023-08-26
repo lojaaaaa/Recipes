@@ -6,6 +6,7 @@ import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipes } from "./redux/slices/recipesSlice";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<HomePage />}/>
           <Route path="/recipes" element={<RecipesPage />}/>
           <Route path="/create" element={<CreatePage />}/>
+          <Route path="/favorites" element={<FavoritesPage />}/>
         </Routes>
       </main>
       <footer className="footer"></footer>

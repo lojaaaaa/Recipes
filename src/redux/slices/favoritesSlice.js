@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-const recipesSlice = createSlice({
-  name: 'recipes',     
+const favoritesSlice = createSlice({
+  name: 'favorites',     
   initialState: {               
-      recipes: [],
+    favorites: [],
   },
   reducers: {
-    addNewFavirite(state, action){
-      state.recipes.push(action.payload) 
+    addNewFavorite(state, action){
+      state.favorites.push(action.payload) 
     },
   },
   extraReducers: {
@@ -17,5 +17,5 @@ const recipesSlice = createSlice({
 })
 
 
-export const {addNewRecipe, removeRecipe} = recipesSlice.actions
-export default recipesSlice.reducer; 
+export const {addNewFavorite} = favoritesSlice.actions
+export default favoritesSlice.reducer; 

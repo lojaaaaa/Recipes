@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteRecipe } from '../../redux/slices/recipesSlice'
+import { addNewFavorite } from '../../redux/slices/favoritesSlice'
 
 
 const RecipeCard = ({id, image, title, desc, ingredients}) => {
@@ -10,6 +11,10 @@ const RecipeCard = ({id, image, title, desc, ingredients}) => {
 
   const onClickDelete = () =>{
     dispatch(deleteRecipe(id))
+  }
+
+  const onClickFavorite= () =>{
+    dispatch(addNewFavorite({id, image, title, desc, ingredients}))
   }
 
   return (
@@ -27,7 +32,7 @@ const RecipeCard = ({id, image, title, desc, ingredients}) => {
         </div>
         <div class="dishes__rating">
           <button class="dishes__card-btn btn" onClick={onClickDelete}>Delete</button>
-          <button class="dishes__card-btn btn">Favorite</button>
+          <button class="dishes__card-btn btn" onClick={onClickFavorite}>Favorite</button>
         </div>
       </div>
     </div>
