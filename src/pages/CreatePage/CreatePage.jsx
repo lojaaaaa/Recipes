@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewRecipe, addRecipe } from '../../redux/recipesSlice'
+import { addNewRecipe, addRecipe } from '../../redux/slices/recipesSlice'
 
 const CreatePage = () => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteRecipe } from '../../redux/recipesSlice'
+import { deleteRecipe } from '../../redux/slices/recipesSlice'
 
 
 const RecipeCard = ({id, image, title, desc, ingredients}) => {

@@ -5,7 +5,7 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipes } from "./redux/recipesSlice";
+import { getRecipes } from "./redux/slices/recipesSlice";
 
 function App() {
 
