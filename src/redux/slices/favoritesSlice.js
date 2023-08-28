@@ -5,12 +5,14 @@ export const addToLocalStorage = createAsyncThunk(
   'favorites/addToLocalStorage',
   async function(favorite, {rejectWithValue, dispatch}){
     try {
-      const favorites = await JSON.parse(localStorage.getItem("favorites"))
-      favorites.push(favorite)
-      
-      await localStorage.setItem("favorites", JSON.stringify(favorites))
-      dispatch(addNewFavorite(favorites))
+      let favorites = await JSON.parse(localStorage.getItem("favorites"))
 
+      if (!favorites.find(f => f.id === favorite.id)){
+        favorites.push(favorite)
+        await localStorage.setItem("favorites", JSON.stringify(favorites))
+        dispatch(addNewFavorite(favorites))
+      }
+      
     } catch (error) {
       return rejectWithValue
     }
