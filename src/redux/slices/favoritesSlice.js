@@ -3,11 +3,14 @@ import axios from "axios";
 
 
 export const addToLocalStorage = createAsyncThunk(
-  'favorites/getFromLocalStorage',
-  async function(_, {rejectWithValue}){
+  'favorites/addToLocalStorage',
+  async function(favorite, {rejectWithValue, dispatch}){
     try {
-      const favorites = await localStorage.getItem("favorites");
-      return favorites
+      const favorites = await JSON.parse(localStorage.getItem("favorites"))
+      favorites.push(favorite)
+      
+      await localStorage.setItem("favorites", JSON.stringify(favorites))
+      dispatch(addNewFavorite(favorites))
 
     } catch (error) {
       return rejectWithValue
@@ -38,8 +41,7 @@ const favoritesSlice = createSlice({
   },
   reducers: {
     addNewFavorite(state, action){
-      state.favorites.push(action.payload)
-      localStorage.setItem("favorites", JSON.stringify(state.favorites))
+      state.favorites = action.payload
     },
   },
   extraReducers: {
@@ -47,8 +49,7 @@ const favoritesSlice = createSlice({
       state.favorites = JSON.parse(action.payload);
   },
   }
-    
-    
+  
   
 })
 
