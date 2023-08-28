@@ -19,6 +19,23 @@ export const addToLocalStorage = createAsyncThunk(
   }
 )
 
+export const deleteFromLocalStorage = createAsyncThunk(
+  'favorites/addToLocalStorage',
+  async function(favorite, {rejectWithValue, dispatch}){
+    try {
+      let favorites = await JSON.parse(localStorage.getItem("favorites"))
+
+      favorites = favorites.filter(f => f.id !== favorite.id)
+      await localStorage.setItem("favorites", JSON.stringify(favorites))
+      dispatch(addNewFavorite(favorites))
+
+      
+    } catch (error) {
+      return rejectWithValue
+    }
+  }
+)
+
 
 export const getFromLocalStorage = createAsyncThunk(
   'favorites/getFromLocalStorage',
