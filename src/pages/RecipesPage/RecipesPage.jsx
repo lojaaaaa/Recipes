@@ -10,7 +10,6 @@ const RecipesPage = () => {
   const recipes = useSelector(state => state.recipes.recipes)
   const {status, error} = useSelector(state => state.recipes)
   
-
   return (
     <>
       <section className="dishes">

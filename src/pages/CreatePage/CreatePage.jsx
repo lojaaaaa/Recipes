@@ -16,7 +16,7 @@ const CreatePage = () => {
       id: recipes.length,
       title: name,
       description: desc,
-      ingredients: ingred.split(' '),
+      ingredients: ingred.split('\n'),
       image: "./img/recipes/1.jpg"
     }
 
@@ -41,12 +41,12 @@ const CreatePage = () => {
               onChange={e => setDesc(e.target.value)}
               type="text" 
               className="create__form-input input" 
-              placeholder='Description'/>
+              placeholder='Cook Time ~ 35 min'/>
             <textarea 
               value={ingred} 
               onChange={e => setIngred(e.target.value)}
               className="create__form-input input" 
-              placeholder='Ingredients'></textarea>
+              placeholder='1 tablespoon unsalted butter and etc...'></textarea>
             <input type="file" className="create__form-input" />
             <button onClick={onClickButton} className='btn btn--green'>Create recipe</button>
           </form>

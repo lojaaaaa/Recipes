@@ -18,21 +18,21 @@ const RecipeCard = ({id, image, title, desc, ingredients}) => {
   }
 
   return (
-    <div class="dishes__card">
-      <div class="dishes__card-image">
-        <img src={image} alt="card" class="dishes__card-img"/>
+    <div className="dishes__card">
+      <div className="dishes__card-image">
+        <img src={image} alt="card" className="dishes__card-img"/>
       </div>
-      <div class="dishes__card-main">
-        <div class="dishes__main">
-          <div class="dishes__main-text">
-            <h4 class="dishes__card-title">{title}</h4>
-            <p class="dishes__card-desk">{desc}</p>
-            <p class="dishes__card-text">{ingredients.join(', ')}</p>
+      <div className="dishes__card-main">
+        <div className="dishes__main">
+          <div className="dishes__main-text">
+            <h4 className="dishes__card-title">{title}</h4>
+            <p className="dishes__card-desk">{desc}</p>
+            <p className="dishes__card-text">{ingredients.join(', ')}</p>
           </div>
         </div>
-        <div class="dishes__rating">
-          <button class="dishes__card-btn btn" onClick={onClickDelete}>Delete</button>
-          <button class="dishes__card-btn btn" onClick={onClickFavorite}>Favorite</button>
+        <div className="dishes__rating">
+          <button className="dishes__card-btn btn" onClick={onClickDelete}>Delete</button>
+          <button className="dishes__card-btn btn" onClick={onClickFavorite}>Favorite</button>
         </div>
       </div>
     </div>
