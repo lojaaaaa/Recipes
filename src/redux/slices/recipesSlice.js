@@ -68,6 +68,6 @@ const recipesSlice = createSlice({
   }
 })
 
-
+ 
 export const {addNewRecipe, removeRecipe} = recipesSlice.actions
 export default recipesSlice.reducer; 
