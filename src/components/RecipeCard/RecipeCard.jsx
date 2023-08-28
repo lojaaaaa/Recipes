@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteRecipe } from '../../redux/slices/recipesSlice'
-import { addNewFavorite, addToFavorites } from '../../redux/slices/favoritesSlice'
+import { addNewFavorite, addToFavorites, addToLocalStorage } from '../../redux/slices/favoritesSlice'
 
 
 const RecipeCard = ({id, image, title, desc, ingredients}) => {
@@ -14,9 +14,7 @@ const RecipeCard = ({id, image, title, desc, ingredients}) => {
   }
 
   const onClickFavorite= () =>{
-    console.log(favorites)
-
-    dispatch(addNewFavorite({id, image, title, desc, ingredients}))
+    dispatch(addToLocalStorage({id, image, title, desc, ingredients}))
   }
 
   return (
