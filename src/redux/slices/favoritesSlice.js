@@ -10,7 +10,7 @@ export const addToLocalStorage = createAsyncThunk(
       if (!favorites.find(f => f.id === favorite.id)){
         favorites.push(favorite)
         await localStorage.setItem("favorites", JSON.stringify(favorites))
-        dispatch(addNewFavorite(favorites))
+        dispatch(updateFavorites(favorites))
       }
       
     } catch (error) {
@@ -20,14 +20,14 @@ export const addToLocalStorage = createAsyncThunk(
 )
 
 export const deleteFromLocalStorage = createAsyncThunk(
-  'favorites/addToLocalStorage',
+  'favorites/deleteFromLocalStorage',
   async function(favorite, {rejectWithValue, dispatch}){
     try {
       let favorites = await JSON.parse(localStorage.getItem("favorites"))
 
       favorites = favorites.filter(f => f.id !== favorite.id)
       await localStorage.setItem("favorites", JSON.stringify(favorites))
-      dispatch(addNewFavorite(favorites))
+      dispatch(updateFavorites(favorites))
 
       
     } catch (error) {
@@ -57,7 +57,7 @@ const favoritesSlice = createSlice({
     favorites: [],
   },
   reducers: {
-    addNewFavorite(state, action){
+    updateFavorites(state, action){
       state.favorites = action.payload
     },
   },
@@ -71,5 +71,5 @@ const favoritesSlice = createSlice({
 })
 
 
-export const {addNewFavorite} = favoritesSlice.actions
+export const {updateFavorites} = favoritesSlice.actions
 export default favoritesSlice.reducer; 
