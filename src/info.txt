@@ -1,0 +1,59 @@
+Data from mockapi.io:
+
+[
+ {
+  "id": "1",
+  "title": "Creamy Cavatappi",
+  "description": "Cook Time ~ 15 mins",
+  "ingredients": [
+   "1 tablespoon unsalted butter ",
+   "2 cloves garlic, mincedе",
+   "3/4 cup heavy cream"
+  ],
+  "image": "./img/recipes/Creamy-Cavatapp.webp"
+ },
+ {
+  "id": "2",
+  "title": "Air Fryer Fish",
+  "description": "Cook Time ~ 20 mins",
+  "ingredients": [
+   "1 tablespoon unsalted butter ",
+   "2 cloves garlic, mincedе",
+   "3/4 cup heavy cream"
+  ],
+  "image": "./img/recipes/Air-Fryer-Salmon.webp"
+ },
+ {
+  "id": "3",
+  "title": "Fried Rice",
+  "description": "Cook Time ~ 15 mins",
+  "ingredients": [
+   "1 tablespoon unsalted butter ",
+   "2 cloves garlic, mincedе",
+   "3/4 cup heavy cream"
+  ],
+  "image": "./img/recipes/Fried-Rice.webp"
+ },
+ {
+  "id": "4",
+  "title": "Shrimp Stir Fry",
+  "description": "Cook Time ~ 25 mins",
+  "ingredients": [
+   "1 tablespoon unsalted butter ",
+   "2 cloves garlic, mincedе",
+   "3/4 cup heavy cream"
+  ],
+  "image": "./img/recipes/Shrimp-Mushroom.webp"
+ },
+ {
+  "id": "5",
+  "title": "SesameSobaNoodles",
+  "description": "Cook Time ~ 35 min",
+  "ingredients": [
+   "1 tablespoon unsalted butter ",
+   "2 cloves garlic, mincedе",
+   "3/4 cup heavy cream"
+  ],
+  "image": "./img/recipes/SesameSobaNoodles.webp"
+ }
+]
