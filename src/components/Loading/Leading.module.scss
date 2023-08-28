@@ -1,0 +1,16 @@
+@keyframes fade {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.message{
+  padding-top: 120px;
+  font-size: 40px;
+  text-align: center;
+  grid-column: span 3;
+  animation: fade 2s infinite;
+}
+
+
+

@@ -52,6 +52,8 @@ const recipesSlice = createSlice({
   name: 'recipes',     
   initialState: {               
       recipes: [],
+      status: 'init',
+      error: null
   },
   reducers: {
     addNewRecipe(state, action){
@@ -62,12 +64,19 @@ const recipesSlice = createSlice({
     },
   },
   extraReducers: {
+    [getRecipes.pending]: (state, action) => {
+      state.status = 'loading'
+    },
     [getRecipes.fulfilled]: (state, action) => {
         state.recipes = action.payload;
+        state.status = 'success'
     },
+    [getRecipes.rejected]: (state, action) => {
+      state.status = 'error'
+      state.error = action.payload
+  },
   }
 })
 
- 
 export const {addNewRecipe, removeRecipe} = recipesSlice.actions
 export default recipesSlice.reducer; 

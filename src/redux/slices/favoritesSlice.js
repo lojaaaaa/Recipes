@@ -82,7 +82,7 @@ const favoritesSlice = createSlice({
     },
     [getFromLocalStorage.rejected]: (state, action) => {
       state.favorites = action.payload;
-      state.status = 'success'
+      state.status = 'error'
       state.error = action.payload
     },
   }
