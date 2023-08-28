@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
 
 
 export const addToLocalStorage = createAsyncThunk(
@@ -19,12 +18,11 @@ export const addToLocalStorage = createAsyncThunk(
 )
 
 
-
 export const getFromLocalStorage = createAsyncThunk(
   'favorites/getFromLocalStorage',
   async function(_, {rejectWithValue}){
     try {
-      const favorites = await localStorage.getItem("favorites");
+      const favorites = await JSON.parse(localStorage.getItem("favorites"));
       return favorites
 
     } catch (error) {
@@ -46,7 +44,7 @@ const favoritesSlice = createSlice({
   },
   extraReducers: {
     [getFromLocalStorage.fulfilled]: (state, action) => {
-      state.favorites = JSON.parse(action.payload);
+      state.favorites = action.payload;
   },
   }
   
