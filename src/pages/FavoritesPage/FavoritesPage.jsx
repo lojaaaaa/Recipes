@@ -1,10 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import RecipeCard from '../../components/RecipeCard/RecipeCard'
-import FavoriteCard from '../../components/FavoriteCard/FavoriteCard'
 import Loading from '../../components/Loading/Loading'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import Empty from '../../components/Empty/Empty'
+import FavoritesList from '../../components/FavoritesList/FavoritesList'
 
 const FavoritesPage = () => {
 
@@ -20,20 +19,12 @@ const FavoritesPage = () => {
           <div className="dishes__line line--green"></div>
           <div className="dishes__cards">
             {favorites.length !== 0
-            ? favorites.map(f => 
-              <FavoriteCard 
-                key={f.id}
-                id={f.id}
-                title={f.title}
-                desc={f.description}
-                image={f.image}
-                ingredients={f.ingredients}
-              />)
+            ? <FavoritesList favorites={favorites}/>
             : <Empty />
           }
           </div>
         </>}
-
+        
         {status === 'loading' && <Loading />}
         {status === 'error' && <ErrorMessage error={error}/>}
       </div>

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import RecipeCard from '../../components/RecipeCard/RecipeCard'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import Loading from '../../components/Loading/Loading'
 import Empty from '../../components/Empty/Empty'
+import RecipesList from '../../components/RecipesLIst/RecipesList'
 
 const RecipesPage = () => {
 
-  const recipes = useSelector(state => state.recipes.recipes)
-  const {status, error} = useSelector(state => state.recipes)
+
+  const {status, error, recipes} = useSelector(state => state.recipes)
   
   return (
     <>
@@ -19,15 +19,7 @@ const RecipesPage = () => {
             <div className="dishes__line line--green"></div>
             <div className="dishes__cards">
               {recipes.length !== 0
-              ? recipes.map(r => 
-              <RecipeCard 
-                key={r.id}
-                id={r.id}
-                title={r.title}
-                desc={r.description}
-                image={r.image}
-                ingredients={r.ingredients}
-              />)
+              ? <RecipesList recipes={recipes}/>
               : <Empty />
               }
             </div>
