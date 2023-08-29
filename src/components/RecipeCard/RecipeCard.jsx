@@ -1,13 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteRecipe } from '../../redux/slices/recipesSlice'
-import { addNewFavorite, addToFavorites, addToLocalStorage } from '../../redux/slices/favoritesSlice'
+import { addToLocalStorage } from '../../redux/slices/favoritesSlice'
 
 
 const RecipeCard = ({id, image, title, desc, ingredients}) => {
 
   const dispatch = useDispatch()
-  const favorites = useSelector(state => state.favorites.favorites)
 
   const onClickDelete = () =>{
     dispatch(deleteRecipe(id))
