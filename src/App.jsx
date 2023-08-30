@@ -12,7 +12,6 @@ import { getFromLocalStorage } from "./redux/slices/favoritesSlice";
 function App() {
 
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(getRecipes());
     dispatch(getFromLocalStorage())
