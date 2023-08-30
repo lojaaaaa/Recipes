@@ -12,9 +12,10 @@ const Search = memo(({setFilteredResipes, recipes}) => {
     setFilteredResipes(filteredRecipes)
   }
 
-  
+
   return (
     <form onSubmit={e => e.preventDefault()} className={style.search}>
+      
       <input 
         onChange={onSearchChange} 
         ref={searchValue} 
