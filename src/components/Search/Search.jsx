@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { memo, useRef } from 'react'
 import style from './Search.module.scss'
 
-const Search = ({setFilteredResipes, recipes}) => {
+const Search = memo(({setFilteredResipes, recipes}) => {
 
   const searchValue = useRef('')
 
@@ -14,10 +14,14 @@ const Search = ({setFilteredResipes, recipes}) => {
 
   return (
     <form onSubmit={e => e.preventDefault()} className={style.search}>
-      <input onChange={onSearchChange} ref={searchValue} className={style.input} type="text" placeholder='Search'/>
-      <button className={style.button}>🔍</button>
+      <input 
+        onChange={onSearchChange} 
+        ref={searchValue} 
+        className={style.input} 
+        type="text" 
+        placeholder='Search'/>
     </form>
   )
-}
+})
 
 export default Search
