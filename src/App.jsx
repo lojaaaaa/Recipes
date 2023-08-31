@@ -4,35 +4,50 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipes } from "./redux/slices/recipesSlice";
 import { getFromLocalStorage } from "./redux/slices/favoritesSlice";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+
 
 function App() {
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getRecipes());
-    dispatch(getFromLocalStorage())
-  }, [dispatch]);
+  const dispatch = useDispatch();
+  const [error, setError] = useState(null);
 
+  const fetchData = useCallback(async () => {
+    try {
+      await dispatch(getRecipes())
+      await dispatch(getFromLocalStorage())
+    } 
+    catch (error) {
+      setError(error)
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div className="wrapper">
       <Header />
       <main className="main">
-        <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/recipes" element={<RecipesPage />}/>
-          <Route path="/create" element={<CreatePage />}/>
-          <Route path="/favorites" element={<FavoritesPage />}/>
-        </Routes>
+        {error ? <ErrorMessage error={error.message} />
+          :(
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/recipes" element={<RecipesPage />} />
+            <Route path="/create" element={<CreatePage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
+          </Routes>
+        )}
       </main>
       <footer className="footer"></footer>
     </div>
   );
 }
 
-
 export default App;
+
