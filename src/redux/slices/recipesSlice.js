@@ -63,18 +63,19 @@ const recipesSlice = createSlice({
       state.recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
     },
   },
-  extraReducers: {
-    [getRecipes.pending]: (state, action) => {
-      state.status = 'loading'
-    },
-    [getRecipes.fulfilled]: (state, action) => {
+  extraReducers: builder => {
+    builder
+      .addCase(getRecipes.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(getRecipes.fulfilled, (state, action) => {
+        state.status = 'success';
         state.recipes = action.payload;
-        state.status = 'success'
-    },
-    [getRecipes.rejected]: (state, action) => {
-      state.status = 'error'
-      state.error = action.payload
-  },
+      })
+      .addCase(getRecipes.rejected, (state, action) => {
+        state.status = 'error';
+        state.error = action.payload;
+      })
   }
 })
 
