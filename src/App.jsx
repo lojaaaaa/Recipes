@@ -4,37 +4,21 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { getRecipes } from "./redux/slices/recipesSlice";
-import { getFromLocalStorage } from "./redux/slices/favoritesSlice";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import useFetchData from "./hooks/useFetchData";
+import useFetchRecipes from "./hooks/useFetchRecipes";
+import useFetchFavorites from "./hooks/useFetchFavorites";
 
 
 function App() {
 
-  const dispatch = useDispatch();
-  const [error, setError] = useState(null);
-
-  const fetchData = useCallback(async () => {
-    try {
-      await dispatch(getRecipes())
-      await dispatch(getFromLocalStorage())
-    } 
-    catch (error) {
-      setError(error)
-    }
-  }, [dispatch])
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  const error = useFetchData()
 
   return (
     <div className="wrapper">
       <Header />
       <main className="main">
-        {error ? <ErrorMessage error={error.message} />
+        { error ? <ErrorMessage error={error.message} />
           :(
           <Routes>
             <Route path="/" element={<HomePage />} />
