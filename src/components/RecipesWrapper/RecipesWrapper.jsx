@@ -5,14 +5,13 @@ import Loading from '../Loading/Loading'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import Empty from '../Empty/Empty'
 import RecipesList from '../RecipesLIst/RecipesList'
+import useFilteredRecipes from '../../hooks/useFilteredRecipes'
 
 const RecipesWrapper = ({children}) => {
-  const {status, error, recipes} = useSelector(state => state.recipes)
-  const [filteredRecipes, setFilteredResipes] = useState([])
-
-  useEffect(() => {
-    setFilteredResipes(recipes);
-  }, [recipes]);
+  const {
+    status, error, 
+    filteredRecipes, 
+    setFilteredResipes, recipes} = useFilteredRecipes()
 
   return (
   <div className="dishes__container container">

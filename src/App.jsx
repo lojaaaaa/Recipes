@@ -6,8 +6,6 @@ import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import useFetchData from "./hooks/useFetchData";
-import useFetchRecipes from "./hooks/useFetchRecipes";
-import useFetchFavorites from "./hooks/useFetchFavorites";
 
 
 function App() {
