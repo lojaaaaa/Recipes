@@ -10,4 +10,5 @@ export default function useFilteredRecipes () {
   }, [recipes]);
 
   return {status, error, filteredRecipes, setFilteredResipes, recipes}
+
 }
